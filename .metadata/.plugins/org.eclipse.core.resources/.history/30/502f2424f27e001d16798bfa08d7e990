@@ -1,0 +1,5 @@
+package kr.go.team.model;
+
+public class YearDAO {
+
+}

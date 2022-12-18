@@ -1,0 +1,65 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="content" id="page2">
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="${path2 }/">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">이용요금 안내</a></li>
+        <li class="breadcrumb-item active" aria-current="page">연간이용권</li>
+    </ol>
+</nav>
+    <h1>연간이용권</h1>
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+	  <label class="btn btn-secondary">
+	    <input value="yearInfo.jsp#page1" type="radio" name="options" id="option1" class="sel"> 권종별 기본가격
+	  </label>
+	  <label class="btn btn-secondary active">
+	    <input value="${path2 }/GetYearListCtrl.do" type="radio" name="options" id="option2" class="sel" checked> 할인정보
+	  </label>
+	  <label class="btn btn-secondary">
+	    <input value="yearInfo.jsp#page3" type="radio" name="options" id="option3" class="sel"> 특별혜택
+	  </label>
+	</div>
+    <section class="page">
+    	<div class="page_wrap">
+			<div class="con_wrap">
+			<h2 class="sub_tit">다양한 할인 혜택으로 더 저렴한 연간이용권을 이용해보세요!</h2>
+			    <table class="table">
+					<thead>
+						<tr>
+						    <th scope="col">번호</th>
+						    <th scope="col">할인 정보</th>
+						    <th scope="col">할인 기간</th>
+						</tr>
+					</thead>
+					<tbody>
+					<c:forEach items="${clist }" var="dto" varStatus="status">
+						<tr>
+							<th scope="row">${status.count }</th>
+							<td><a href="${path1 }/GetYearCtrl.do?no=${dto.no }">${dto.title }</a></td>
+							<td>${dto.period }</td>
+						</tr>
+					</c:forEach>
+					<c:if test="${empty list }">
+					    <tr>
+					    	<td colspan="3">현재 할인 혜택이 없습니다.</td>
+					    </tr>
+					</c:if>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+</div>
+<footer>
+
+</footer>
+</body>
+</html>

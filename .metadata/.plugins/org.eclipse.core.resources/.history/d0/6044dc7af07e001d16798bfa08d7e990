@@ -1,0 +1,14 @@
+package kr.go.team.dto;
+
+public class yearDTO {
+    private int no;
+    private String title;
+    private String ydisA;
+    private String ydisB;
+    private String ydisC;
+    private String ydisD;
+    private String ydisE;
+    private String period;
+    private String target;
+    private String caution;
+}

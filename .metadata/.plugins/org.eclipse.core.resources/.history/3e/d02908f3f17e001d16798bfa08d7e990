@@ -1,0 +1,67 @@
+package kr.go.team.model;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class Oracle {
+	static final String DRIVER = "oracle.jdbc.OracleDriver";
+    static final String URL = "jdbc:oracle:thin:@localhost:1521:xe";
+    static final String USER = "system";
+    static final String PW = "1234";
+    
+    final static String YEAR_SELECT_ALL = "select * from yeardis order by regdate desc";
+    final static String YEAR_SELECT_ONE = "select * from yeardis where no=?";
+    final static String YEAR_INSERT = "insert into yeardis values (yseq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    final static String YEAR_DELETE = "delete from yeardis where no=?";
+    final static String YEAR_UPDATE = "update notice set title=?, content=? where no=?";
+    	
+    public static Connection getConnection() throws ClassNotFoundException, SQLException {
+		Class.forName(DRIVER);
+		Connection con = DriverManager.getConnection(URL, USER, PW);
+		return con;
+	}
+	
+	public static void close(PreparedStatement pstmt, Connection con) {
+		if(pstmt!=null){
+			try {
+				pstmt.close();
+			} catch(SQLException e){
+				e.printStackTrace();
+			}
+		}
+		if(con!=null){
+			try {
+				con.close();
+			} catch(SQLException e){
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public static void close(ResultSet rs, PreparedStatement pstmt, Connection con) {
+		if(rs!=null){
+			try {
+				rs.close();
+			} catch(SQLException e){
+				e.printStackTrace();
+			}
+		}
+		if(pstmt!=null){
+			try {
+				pstmt.close();
+			} catch(SQLException e){
+				e.printStackTrace();
+			}
+		}
+		if(con!=null){
+			try {
+				con.close();
+			} catch(SQLException e){
+				e.printStackTrace();
+			}
+		}
+	}
+}

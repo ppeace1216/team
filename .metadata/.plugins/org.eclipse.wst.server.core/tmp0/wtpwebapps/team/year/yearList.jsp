@@ -51,13 +51,13 @@
     <h1>연간이용권</h1>
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
 	  <label class="btn btn-secondary">
-	    <input value="yearInfo.jsp#page1" type="radio" name="options" id="option1" class="sel"> 권종별 기본가격
+	    <input value="${path1 }/charge/yearInfo.jsp#page1" type="radio" name="options" id="option1" class="sel"> 권종별 기본가격
 	  </label>
 	  <label class="btn btn-secondary active">
-	    <input value="${path2 }/GetYearListCtrl.do" type="radio" name="options" id="option2" class="sel" checked> 할인정보
+	    <input value="${path1 }/GetYearListCtrl.do" type="radio" name="options" id="option2" class="sel" checked> 할인정보
 	  </label>
 	  <label class="btn btn-secondary">
-	    <input value="yearInfo.jsp#page3" type="radio" name="options" id="option3" class="sel"> 특별혜택
+	    <input value="${path1 }/charge/yearInfo.jsp#page3" type="radio" name="options" id="option3" class="sel"> 특별혜택
 	  </label>
 	</div>
     <section class="page">
@@ -87,6 +87,11 @@
 					</c:if>
 					</tbody>
 				</table>
+				<div class="buttons">
+				  <!--	<c:if test='${sid.equals("admin") }'>	-->
+				  	<a href="${path1 }/year/yearInsert.jsp" class="button is-success">글 등록</a>
+				  <!--	</c:if>	-->
+				</div>
 			</div>
 		</div>
 	</section>

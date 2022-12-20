@@ -18,5 +18,6 @@
 <a href="${path2 }/charge/fastInfo.jsp">패스트트랙 요금보기</a>
 <a href="${path2 }/charge/yearInfo.jsp#page1">연간이용권</a>
 <a href="${path1 }/GetYearListCtrl.do">연간이용권 할인혜택</a>
+<a href="${path2 }/year/yearInsert.jsp">연간이용권 할인 추가</a>
 </body>
 </html>
